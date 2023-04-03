@@ -52,16 +52,16 @@ bowtie2 -p 8 --local --very-sensitive-local --no-unal --no-mixed --no-discordant
 ### manual: https://www.htslib.org/doc/samtools.html
 ##### Option 1:
 ```{shell}
-
+##### sam to bam file
 samtools view -S -b -@ 14  ${ALIGN}/9631-MB-${i}.hg19ec.sam -o ${BAM}/9631-MB-${i}.hg19ec.bam
-
+##### read quality filter
 samtools view -b -F 4 -q 10 -@ 14 ${BAM}/9631-MB-${i}.hg19ec.bam -o ${BAM}/9631-MB-${i}.hg19ec.F4q10.bam
-
+##### sort 
 samtools sort -@ 12 ${BAM}/9631-MB-${i}.hg19ec.F4q10.bam -o ${BAM}/9631-MB-${i}.hg19ec.F4q10.sorted.bam
-
+##### index
 samtools index ${BAM}/9631-MB-${i}.hg19ec.F4q10.sorted.bam
-
+##### selecting only the human chromosomes minus chrM
 samtools view -@ 12 -bh ${BAM}/9631-MB-${i}.hg19ec.F4q10.sorted.bam chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY > ${BAM}/9631-MB-${i}.hg19.F4q10.sorted.bam
-
+##### index
 samtools index ${BAM}/9631-MB-${i}.hg19.F4q10.sorted.bam
 ```
