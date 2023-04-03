@@ -48,7 +48,7 @@ bowtie2 -p 8 --local --very-sensitive-local --no-unal --no-mixed --no-discordant
 
 ##### Option 3: Refer to shell script loop example 
 
-# Samtools 
+## Samtools 
 ### manual: https://www.htslib.org/doc/samtools.html
 ##### Option 1:
 ```{shell}
