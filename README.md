@@ -17,12 +17,12 @@ java -classpath {SOFTWARE_DIR}/trimmomatic-0.39.jar org.usadellab.trimmomatic.Tr
 ILLUMINACLIP:TruSeq_CD_adapter.txt:2:30:7 LEADING:15 TRAILING:15 MINLEN:15 
 ``
 ##### Option 2: run in the background using nohup 
-``{shell}
+```{shell}
 java -classpath {SOFTWARE_DIR}/trimmomatic-0.39.jar org.usadellab.trimmomatic.TrimmomaticPE -phred33 -threads 8 \
 5176-MB-1-TCGGATTC-CGCAACTA_S01_L005_R1_001.fastq.gz 5176-MB-1-TCGGATTC-CGCAACTA_S01_L005_R2_001.fastq.gz \
 5176-MB-1_R1.nodap.paired.txt 5176-MB-1_R1.noadap.unpaired.txt 5176-MB-1_R2.noadap.paired.txt  5176-MB-1_R2.noadap.unpaired.txt \
 ILLUMINACLIP:TruSeq_CD_adapter.txt:2:30:7 LEADING:15 TRAILING:15 MINLEN:15 
-``
+```
 
 
 ## Bowtie2
