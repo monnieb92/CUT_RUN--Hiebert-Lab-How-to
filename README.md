@@ -47,3 +47,21 @@ bowtie2 -p 8 --local --very-sensitive-local --no-unal --no-mixed --no-discordant
 ##### Option 2: Run with nohup  
 
 ##### Option 3: Refer to shell script loop example 
+
+# Samtools 
+### manual: https://www.htslib.org/doc/samtools.html
+##### Option 1:
+```{shell}
+
+samtools view -S -b -@ 14  ${ALIGN}/9631-MB-${i}.hg19ec.sam -o ${BAM}/9631-MB-${i}.hg19ec.bam
+
+samtools view -b -F 4 -q 10 -@ 14 ${BAM}/9631-MB-${i}.hg19ec.bam -o ${BAM}/9631-MB-${i}.hg19ec.F4q10.bam
+
+samtools sort -@ 12 ${BAM}/9631-MB-${i}.hg19ec.F4q10.bam -o ${BAM}/9631-MB-${i}.hg19ec.F4q10.sorted.bam
+
+samtools index ${BAM}/9631-MB-${i}.hg19ec.F4q10.sorted.bam
+
+samtools view -@ 12 -bh ${BAM}/9631-MB-${i}.hg19ec.F4q10.sorted.bam chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY > ${BAM}/9631-MB-${i}.hg19.F4q10.sorted.bam
+
+samtools index ${BAM}/9631-MB-${i}.hg19.F4q10.sorted.bam
+```
