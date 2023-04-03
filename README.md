@@ -23,7 +23,7 @@ nohup java -classpath {SOFTWARE_DIR}/trimmomatic-0.39.jar org.usadellab.trimmoma
 5176-MB-1_R1.nodap.paired.txt 5176-MB-1_R1.noadap.unpaired.txt 5176-MB-1_R2.noadap.paired.txt  5176-MB-1_R2.noadap.unpaired.txt \
 ILLUMINACLIP:TruSeq_CD_adapter.txt:2:30:7 LEADING:15 TRAILING:15 MINLEN:15 > 5176-trim-1.out &
 ```
-
+##### Option 3: Refer to shell script loop example 
 
 ## Bowtie2
 ### manual: https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml
@@ -39,7 +39,11 @@ ILLUMINACLIP:TruSeq_CD_adapter.txt:2:30:7 LEADING:15 TRAILING:15 MINLEN:15 > 517
 #### X: The maximum fragment length for valid paired-end alignments. 
 #### p: threads or processors to use will running 
 
+##### Option 1: 
 ```{shell} 
 bowtie2 -p 8 --local --very-sensitive-local --no-unal --no-mixed --no-discordant --phred33 -I 10 -X 700 --no-overlap --no-dovetail -x {GENOME_DIR}/hg19_ec \
 -1 4617-MB-1_R1.noadap.paired.txt -2 4617-MB-1_R2.noadap.paired.txt -S 4617-MB-1.hg19scer.sam 
 ```
+##### Option 2: Run with nohup  
+
+##### Option 3: Refer to shell script loop example 
