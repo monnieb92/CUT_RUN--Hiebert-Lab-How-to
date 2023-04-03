@@ -26,7 +26,7 @@ ILLUMINACLIP:TruSeq_CD_adapter.txt:2:30:7 LEADING:15 TRAILING:15 MINLEN:15
 
 
 ## Bowtie2
-### manual https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml
+### manual: https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml
 #### From CUT&RUN protocol.io For mapping spike-in fragments, we also use the --no-overlap --no-dovetail options to avoid cross-mapping of the experimental genome to that of the spike-in DNA.(https://www.protocols.io/view/cut-amp-run-targeted-in-situ-genome-wide-profiling-14egnr4ql5dy/v3?step=113)
 #### local: Local alignment searches for the best alignment of a substring of the input sequence. While it can find an alignment for the entire sequence, if another, shorter, alignment has a higher score, it will be chosen. End-to-end will compute the score over the entire matching of the input sequence and its alignment with the reference. If there are adapters/long mismatches/indels etc. the local will work best. If you have a good reason to believe that the input sequence should be fully matched to the reference, then select end-to-end
 #### very-sensitive-local: Same as: -D 20 -R 3 -N 0 -L 20 -i S,1,0.50 
